@@ -14,7 +14,7 @@ int main(int argc, char* argv[]) {
 
     opterr = 0;
 
-    while ((c = getopt(argc, argv, "k:i:o:")) != -1) {
+    while ((c = getopt(argc, argv, "k:i:o::")) != -1) {
         switch (c) {
             case 'k':
                 key = atoi(optarg);
