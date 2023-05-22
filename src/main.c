@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <ctype.h>
+#include "xorist.h"
 
 typedef unsigned char byte_t;
 
@@ -42,6 +43,8 @@ int main(int argc, char* argv[]) {
     printf("Read key is %d\n", key);
     printf("Read input file is %s\n", inFileName);
     printf("Read output file is %s\n", outFileName);
+
+    int a = sum(1, 2);
 
     exit(EXIT_SUCCESS);
 }
