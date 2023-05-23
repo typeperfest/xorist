@@ -12,7 +12,7 @@ int main(int argc, char* argv[]) {
     char* outFileName = NULL;
     int c;
 
-    if (argc != 3) {
+    if (argc != 7) {
         printHelp();
         exit(EXIT_FAILURE);
     }
