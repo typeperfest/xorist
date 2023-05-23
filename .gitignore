@@ -53,3 +53,6 @@ dkms.conf
 
 .vscode
 build/*
+example/decrypted.txt
+example/*.bin
+example/xorist
