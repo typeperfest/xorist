@@ -12,6 +12,11 @@ int main(int argc, char* argv[]) {
     char* outFileName = NULL;
     int c;
 
+    if (argc != 3) {
+        printHelp();
+        exit(EXIT_FAILURE);
+    }
+
     opterr = 0;
 
     while ((c = getopt(argc, argv, "k:i:o:")) != -1) {
