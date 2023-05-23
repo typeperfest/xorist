@@ -49,7 +49,7 @@ int main(int argc, char* argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    FILE* inputFilePtr = openFile(inFileName);
+    FILE* inputFilePtr = fopen(inFileName, "r");
     size_t fileSize = getFileSize(inputFilePtr);
     if (fileSize == 0) {
         exit(EXIT_SUCCESS);
@@ -63,7 +63,7 @@ int main(int argc, char* argv[]) {
     }
     encodeBuffer(buffer, bytesRead, key);
 
-    FILE* outputFilePtr = openFile(outFileName);
+    FILE* outputFilePtr = fopen(outFileName, "w");
     size_t bytesWritten = writeBufferToFile(buffer, bytesRead, outputFilePtr);
 
     if(bytesWritten != bytesRead) {
@@ -72,5 +72,7 @@ int main(int argc, char* argv[]) {
     }
 
     freeBuffer(buffer);
+    fclose(inputFilePtr);
+    fclose(outputFilePtr);
     exit(EXIT_SUCCESS);
 }
