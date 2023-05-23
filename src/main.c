@@ -44,10 +44,6 @@ int main(int argc, char* argv[]) {
         }
     }
 
-    printf("Read key is %d\n", key);
-    printf("Read input file is %s\n", inFileName);
-    printf("Read output file is %s\n", outFileName);
-
     if (strcmp(inFileName, outFileName) == 0) {
         fprintf(stderr, "Existring file overwrite protection. Input file name is equal to output file name");
         exit(EXIT_FAILURE);
