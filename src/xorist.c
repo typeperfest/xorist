@@ -12,15 +12,6 @@ void printHelp() {
     printf("\t\tWhere <output_file> name of file different from <input_file>\n");
 }
 
-FILE* openFile(const char* fileName) {
-    FILE* filePtr = fopen(fileName, "wb+");
-    if (!filePtr) {
-        perror("File opening failed");
-        exit(EXIT_FAILURE);
-    }
-    return filePtr;
-}
-
 size_t getFileSize(FILE* filePtr) {
     fseek(filePtr, 0L, SEEK_END);
     size_t size = ftell(filePtr);

@@ -7,7 +7,6 @@
 typedef unsigned char byte_t;
 
 void printHelp();
-FILE* openFile(const char* fileName);
 size_t getFileSize(FILE* filePtr);
 char* allocateBuffer(size_t bufSize);
 size_t readFileIntoBuffer(char* buffer, size_t fileSize, FILE* filePtr);
