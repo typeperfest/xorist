@@ -5,6 +5,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void printHelp() {
+    printf("\tUsage: xorist -k <key> -i <input_file> -o <output_file>\n");
+    printf("\t\tWhere <key> is one byte integer value [0..255]\n");
+    printf("\t\tWhere <input_file> name of existing file\n");
+    printf("\t\tWhere <output_file> name of file different from <input_file>\n");
+}
+
 FILE* openFile(const char* fileName) {
     FILE* filePtr = fopen(fileName, "wb+");
     if (!filePtr) {
