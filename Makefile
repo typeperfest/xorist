@@ -8,6 +8,17 @@ CFLAGS = -O2
 SOURCE_FILES := $(shell find $(XORIST_SRC_DIR) -name "*.c")
 OBJECT_FILES := $(SOURCE_FILES:$(XORIST_SRC_DIR)/%.c=$(BUILD_DIR)/%.o)
 
+all: breaker xorist
+
+breaker: build/breaker.o build/br_main.o
+	cc -O2 build/breaker.o build/br_main.o -o build/breaker
+
+build/breaker.o: src/breaker/xorist-breaker.c
+	cc -c -O2 src/breaker/xorist-breaker.c -o $@
+
+build/br_main.o: src/breaker/main.c
+	cc -c -O2 src/breaker/main.c -o $@
+
 $(BUILD_DIR)/$(TARGET_EXECUTABLE): $(OBJECT_FILES)
 	$(CC) $(CFLAGS) $(OBJECT_FILES) -o $(BUILD_DIR)/$(TARGET_EXECUTABLE)
 
