@@ -72,3 +72,53 @@ void clearDict(dictionary_t* dictionary) {
         ++wptr;
     }
 }
+
+size_t getFileSize(FILE* filePtr) {
+    fseek(filePtr, 0L, SEEK_END);
+    size_t size = ftell(filePtr);
+    rewind(filePtr);
+    return size;
+}
+
+char* allocateBuffer(size_t bufSize) {
+    char* buffer = (char*)calloc(bufSize, sizeof(char));
+    if (!buffer) {
+        perror("Allocating buffer failed");
+        exit(EXIT_FAILURE);
+    }
+    return buffer;
+}
+
+size_t readFileIntoBuffer(char* buffer, size_t size, FILE* filePtr) {
+    size_t bytesRead = fread(buffer, sizeof(char), size, filePtr);
+    return bytesRead;
+}
+
+void xorBuffer(char* buffer, size_t size, unsigned char key) {
+    for (size_t i = 0; i < size; ++i) {
+        buffer[i] ^= key;
+    }
+}
+
+int getSpaces(char* buffer, size_t size) {
+    unsigned int count = 0;
+    for (size_t i = 0; i < size; ++i) {
+        if (buffer[i] == 32) ++count;
+    }
+    return count;
+}
+
+int checkWordsInbuffer(char* buffer, size_t size, dictionary_t* const dict) {
+    int lastSpace = -1;
+    char* currentWord = NULL;
+    for (size_t i = 0; i < size - 1; ++i) {
+        if (buffer[i] == ' ' || buffer[i] == '\n') {
+            // if lastSpace == -1 => -lastSpace - 1 == 0 
+            currentWord = strndup(buffer + lastSpace + 1, i - lastSpace - 1);
+            lastSpace = i;
+            if (dictContains(dict, currentWord)) return 1;
+            free(currentWord);
+        }
+    }
+    return 0;
+}
