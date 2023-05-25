@@ -20,7 +20,16 @@ int main() {
         fscanf(dictf, " %31s ", wordBuff);
         dictAddWord(&dictionary, wordBuff);
     }
-
+    fclose(dictf);
+    /*
+    TODO: read cracking file
+    TODO: if cycle [0..255] body: make key as i,
+                            apply key to a text
+                            check if file contains spaces, 
+                            if not - continue, else check word in dictionary,
+                            if word founded - out as possible plaintext
+                            else continue
+    */
     clearDict(&dictionary);
     return 0;
 }
