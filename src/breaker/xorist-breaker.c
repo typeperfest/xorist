@@ -4,6 +4,10 @@
 
 #include "xorist-breaker.h"
 
+void printHelp() {
+    printf("\tUsage: ./breaker -d <path_to_dictionary_file> -c <path_to_cracking_file>");
+}
+
 // requirement: argument is null-termitated string
 size_t computeHash(const char* argument, const size_t modulo) {
     size_t hash = 0;
