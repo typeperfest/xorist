@@ -6,6 +6,8 @@
 #include <string.h>
 #include "xorist.h"
 
+
+// TODO: xorist fails with segfault if working directory is differ from xorist dir
 int main(int argc, char* argv[]) {
     byte_t key = 0;
     char* inFileName = NULL;
