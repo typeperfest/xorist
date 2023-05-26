@@ -50,7 +50,7 @@ int main(int argc, char* argv[]) {
 
     FILE* crackf = fopen(crackfname, "r");
     size_t fsize = getFileSize(crackf);
-    const char* textBuffer = allocateBuffer(fsize + 1);
+    char* textBuffer = allocateBuffer(fsize + 1);
     readFileIntoBuffer(textBuffer, fsize, crackf);
 
     for (int key = 0; key < 256; ++key) {
