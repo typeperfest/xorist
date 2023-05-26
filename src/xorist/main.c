@@ -46,6 +46,16 @@ int main(int argc, char* argv[]) {
         }
     }
 
+    if (!inFileName) {
+        fprintf(stderr, "Input file is not found. Aborting...");
+        exit(EXIT_FAILURE);
+    }
+
+    if (!inFileName) {
+        fprintf(stderr, "Input file is not found. Aborting...");
+        exit(EXIT_FAILURE);
+    }
+
     if (strcmp(inFileName, outFileName) == 0) {
         fprintf(stderr, "Existring file overwrite protection. Input file name is equal to output file name");
         exit(EXIT_FAILURE);
