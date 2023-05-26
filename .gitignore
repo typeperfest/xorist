@@ -53,6 +53,9 @@ dkms.conf
 
 .vscode
 build/*
-example/decrypted.txt
-example/*.bin
-example/xorist
+
+examples/cracking/*
+!examples/cracking/runCrack.sh
+
+examples/encryption-decryption/*
+!examples/encryption-decryption/runEncryption.sh

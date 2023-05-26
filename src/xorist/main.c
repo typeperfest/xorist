@@ -25,10 +25,10 @@ int main(int argc, char* argv[]) {
                 key = atoi(optarg);
                 break;
             case 'i':
-                inFileName = optarg;
+                inFileName = strdup(optarg);
                 break;
             case 'o':
-                outFileName = optarg;
+                outFileName = strdup(optarg);
                 break;
             case '?':
                 if (optopt == 'k' || optopt == 'i' || optopt == 'o') {
@@ -42,6 +42,16 @@ int main(int argc, char* argv[]) {
             default:
                 abort();
         }
+    }
+
+    if (!inFileName) {
+        fprintf(stderr, "Input file is not found. Aborting...");
+        exit(EXIT_FAILURE);
+    }
+
+    if (!inFileName) {
+        fprintf(stderr, "Input file is not found. Aborting...");
+        exit(EXIT_FAILURE);
     }
 
     if (strcmp(inFileName, outFileName) == 0) {
@@ -71,6 +81,8 @@ int main(int argc, char* argv[]) {
         exit(EXIT_FAILURE);
     }
 
+    free(inFileName);
+    free(outFileName);
     freeBuffer(buffer);
     fclose(inputFilePtr);
     fclose(outputFilePtr);

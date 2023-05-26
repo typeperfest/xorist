@@ -20,7 +20,7 @@ size_t getFileSize(FILE* filePtr) {
 }
 
 char* allocateBuffer(size_t bufSize) {
-    char* buffer = malloc(bufSize * sizeof(char));
+    char* buffer = (char*)malloc(bufSize * sizeof(char));
     if (!buffer) {
         perror("Allocating buffer failed");
         exit(EXIT_FAILURE);
