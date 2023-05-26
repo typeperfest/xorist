@@ -5,13 +5,14 @@ and breaker, which uses brute-force enumaration of all keys to crack a cipher. P
 
 ### xorist
 
+- block cipher
 - block size is 1 byte.
 - operation is bitwise xor
 
 ### breaker
 
 - brute-force
-- accepts a dictionary txt file of words to find in ciphertext
+- accepts a dictionary txt file of words to detect in ciphertext
 - implements disposable hash-table
 
 ### Building & Usage
